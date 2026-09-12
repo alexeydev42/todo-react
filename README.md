@@ -1,10 +1,10 @@
 # To Do List
 
-A small React application for managing everyday tasks.
+A React task manager for creating, organizing and tracking everyday tasks.
 
-[Live demo](https://person5494.github.io/todo-react/) · [Repository](https://github.com/person5494/todo-react)
+The application includes search, statistics, persistent storage, theme switching and a layered component structure. It was developed as part of my React practice, with the implementation focused on state management, component composition and reusable application logic.
 
-The project started as part of my React studies and was developed with guidance from an instructor. A significant part of the implementation, structure and UI work was done by me.
+[Live demo](https://alexeydev42.github.io/todo-react/) · [Repository](https://github.com/alexeydev42/todo-react)
 
 ## Features
 
@@ -12,11 +12,11 @@ The project started as part of my React studies and was developed with guidance 
 - mark tasks as completed;
 - delete individual tasks or clear the entire list;
 - search tasks by title;
-- task statistics;
+- view task statistics;
 - jump to the first incomplete task;
-- light and dark themes;
-- small UI animations when tasks are added or removed;
-- persistent data in the deployed version.
+- switch between light and dark themes;
+- UI animations when tasks are added or removed;
+- persistent task data in the deployed version.
 
 ## Tech stack
 
@@ -25,15 +25,16 @@ The project started as part of my React studies and was developed with guidance 
 - SCSS Modules
 - Vite
 - Context API
-- `useReducer` and custom hooks
+- `useReducer`
+- custom hooks
 - JSON Server
 - Local Storage
 - ESLint
 - GitHub Pages
 
-## Structure
+## Application structure
 
-The application is split into several layers:
+The project is organized into several layers:
 
 ```text
 src/
@@ -45,22 +46,37 @@ src/
 └── widgets/
 ```
 
-The structure is inspired by Feature-Sliced Design: task data and related logic live in `entities`, user actions are separated into `features`, reusable UI and API code are kept in `shared`, and the main To Do interface is assembled in `widgets`.
+The structure is inspired by Feature-Sliced Design.
 
-Task state is managed with `useReducer`, while Context is used to make task data and actions available to the components that need them. The project also contains custom hooks for task logic, persistence and scrolling to the first incomplete item.
+Task data and related logic are placed in `entities`, user actions are separated into `features`, reusable UI and API code are kept in `shared`, and the main application interface is assembled in `widgets`.
+
+## State management
+
+Task state is managed with `useReducer`, while Context provides task data and actions to the components that need them.
+
+The project also contains custom hooks for:
+
+- task operations;
+- persistent storage;
+- scrolling to the first incomplete task;
+- reusable task-related behavior.
+
+Memoization and stable callbacks are used where appropriate to avoid unnecessary recalculations and keep component responsibilities separated.
 
 ## Data storage
 
 The project supports two data sources.
 
-During local development it can work with a JSON Server backend. The production build used for GitHub Pages switches to a static/local implementation, so the application remains usable without a separate server.
+During local development it can work with a JSON Server backend.
+
+The production build used for GitHub Pages switches to a static/local implementation, so the deployed application remains usable without a separate backend.
 
 ## Run locally
 
 Clone the repository and install dependencies:
 
 ```bash
-git clone https://github.com/person5494/todo-react.git
+git clone https://github.com/alexeydev42/todo-react.git
 cd todo-react
 npm install
 ```
@@ -85,6 +101,6 @@ npm run build
 
 ## Deployment
 
-The project is deployed to GitHub Pages:
+The project is deployed with GitHub Pages:
 
-https://person5494.github.io/todo-react/
+https://alexeydev42.github.io/todo-react/
